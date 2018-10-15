@@ -38,8 +38,8 @@ public class Hook {
     }
 
     protected String getUrl() {
-//    	return "http://swisslife-dev01.test-server.ag:8080/swisslife-commission";
-	    return Objects.requireNonNull(System.getProperty("insure.commission.test.url"));
+    	return "http://swisslife-dev01.test-server.ag:8080/swisslife-commission";
+//	    return Objects.requireNonNull(System.getProperty("insure.commission.test.url"));
     }
 
 	@Before
@@ -64,9 +64,11 @@ public class Hook {
 
 	public void setBrowserConfiguration() {
 		try {
+//			System.setProperty("webdriver.chrome.driver",
+//                System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator +
+//                    "browserdriver" + File.separator + "chrome" + File.separator + getOsDriverPath());
 			System.setProperty("webdriver.chrome.driver",
-                System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator +
-                    "browserdriver" + File.separator + "chrome" + File.separator + getOsDriverPath());
+	                System.getProperty("user.dir") + File.separator + "chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
