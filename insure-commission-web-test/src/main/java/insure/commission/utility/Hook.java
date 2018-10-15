@@ -23,17 +23,18 @@ public class Hook {
 
 	    os = OperatingSystemProducer.getCurrent();
 
-	    switch (os) {
-            case WINDOWS:
-                return "windows" + File.separator + "chromedriver.exe";
-            case UNIX:
-            case POSIX_UNIX:
-                return "linux" + File.separator + "chromedriver";
-            case MAC:
-                return "macos" + File.separator + "chromedriver";
-            default:
-                throw new IllegalArgumentException("Unsupported operating system");
-        }
+//	    switch (os) {
+//            case WINDOWS:
+//                return "windows" + File.separator + "chromedriver.exe";
+//            case UNIX:
+//            case POSIX_UNIX:
+//                return "linux" + File.separator + "chromedriver";
+//            case MAC:
+//                return "macos" + File.separator + "chromedriver";
+//            default:
+//                throw new IllegalArgumentException("Unsupported operating system");
+//        }
+	    return "windows" + File.separator + "chromedriver.exe";
     }
 
     protected String getUrl() {
