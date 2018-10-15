@@ -67,8 +67,7 @@ public class Hook {
 //			System.setProperty("webdriver.chrome.driver",
 //                System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator +
 //                    "browserdriver" + File.separator + "chrome" + File.separator + getOsDriverPath());
-			System.setProperty("webdriver.chrome.driver",
-	                System.getProperty("user.dir") + File.separator + "chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","C:\\Test\\insure_commission_faces\\insure-commission-web-test\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
