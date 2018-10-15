@@ -37,7 +37,8 @@ public class Hook {
     }
 
     protected String getUrl() {
-	    return Objects.requireNonNull(System.getProperty("insure.commission.test.url"));
+    	return "http://swisslife-dev01.test-server.ag:8080/swisslife-commission";
+//	    return Objects.requireNonNull(System.getProperty("insure.commission.test.url"));
     }
 
 	@Before
