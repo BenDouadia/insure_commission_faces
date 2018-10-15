@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+    triggers {
+        pollSCM('H/15 * * * *')
+    }
+    stages {
+        stage('Build and Deploy') {
+            steps {
+                withMaven(
+                    jdk: 'JDK8u162',
+                    maven: 'Maven 3.2.5',
+                    mavenLocalRepo: '$WORKSPACE/.m2/repository',
+                    mavenOpts: '-Dmaven.test.skip=true -DaltDeploymentRepository=insure_commission_snapshots::default::https://ci-nexus.adesso.de/nexus/content/repositories/insure_commission_snapshot/',
+                    mavenSettingsFilePath: '~config/maven/settings.xml') {
+                    dir('./insure-commission-web-test') {
+                        sh 'mvn clean source:jar deploy'
+                    }
+                }
+            }
+        }
+	}
+    post {
+        failure {
+            script {
+                mail(
+                    from: 'Jenkins <bot@codeclou.io>',
+                    to: 'tobias.boehm@adesso-insurance-solutions.de',
+                    subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is UNSTABLE!",
+                    body: "Please go to ${env.BUILD_URL}."
+                )
+            }
+        }
+        success {
+		    script {
+				if (env.BUILD_NUMBER == "1"){
+                        echo "Erster Build erfolgreich Gelaufen"
+                }
+                else{
+					if ('SUCCESS' != currentBuild.getPreviousBuild().getResult()) {
+						mail(to: 'tobias.boehm@adesso-insurance-solutions.de', subject: "${env.JOB_NAME}' (${env.BUILD_NUMBER}) - Back to normal", body: "Build back to normal: ${env.BUILD_URL}.");
+					}
+                }
+            }
+        }
+    }
+}

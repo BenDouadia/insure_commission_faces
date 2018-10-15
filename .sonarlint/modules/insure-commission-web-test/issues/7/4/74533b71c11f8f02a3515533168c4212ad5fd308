@@ -1,0 +1,11 @@
+
+Zsquid:S1148“"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHË†RMINORZVULNERABILITY
+Zsquid:S1148£"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÌ†RMINORZVULNERABILITY
+rsquid:S1155ª">Use isEmpty() to check whether the collection is empty or not.(ÿ—æ£ûÿÿÿÿHÎ†RMINORZ
+CODE_SMELL
+Zsquid:S1148‡"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÊ†RMINORZVULNERABILITY
+Zsquid:S1148°"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÍ†RMINORZVULNERABILITY
+~squid:CommentedOutCodeLineG"<This block of commented-out lines of code should be removed.(ÉÉÑ¨øÿÿÿÿHÇ†RMAJORZ
+CODE_SMELL
+Ysquid:S1148/"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÈ†RMINORZVULNERABILITY
+Ysquid:S1148I"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿHÉ†RMINORZVULNERABILITY

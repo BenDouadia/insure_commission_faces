@@ -1,0 +1,18 @@
+
+Ysquid:S1148X"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH±äRMINORZVULNERABILITY
+Ysquid:S1148 "#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH¼äRMINORZVULNERABILITY
+lsquid:S1155y">Use isEmpty() to check whether the collection is empty or not.(ýœæêH³äRMINORZ
+CODE_SMELL
+Ysquid:S1148B"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH¸äRMINORZVULNERABILITY
+lsquid:S1155l">Use isEmpty() to check whether the collection is empty or not.(ýœæêHµäRMINORZ
+CODE_SMELL
+Ysquid:S11486"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH½äRMINORZVULNERABILITY
+Ysquid:S1148~"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH·äRMINORZVULNERABILITY
+Ysquid:S1148O"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH»äRMINORZVULNERABILITY
+Ysquid:S1148d"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH¶äRMINORZVULNERABILITY
+}squid:S1858_"H"value" is already a string, there's no need to call "toString()" on it.(¾žôÐ8÷‰¶’æ,H¾äRMINORZ
+CODE_SMELL
+Ysquid:S1148q"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH¹äRMINORZVULNERABILITY
+Ysquid:S1148+"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿH´äRMINORZVULNERABILITY
+qsquid:S1155I">Use isEmpty() to check whether the collection is empty or not.(ÿ—æ£ûÿÿÿÿH²äRMINORZ
+CODE_SMELL

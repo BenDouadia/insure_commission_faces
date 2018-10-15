@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+    }
+    triggers {
+        cron('H 2 * * *')
+    }
+    stages {
+        stage('Execute Tests on Swisslife Development') {
+            steps {
+                withMaven(
+                    jdk: 'JDK8u162',
+                    maven: 'Maven 3.2.5',
+                    mavenLocalRepo: '$WORKSPACE/.m2/repository',
+                    mavenOpts: '-Dinsure.commission.test.url=http://swisslife-dev01.test-server.ag:8080/swisslife-commission',
+                    mavenSettingsFilePath: '~config/maven/settings.xml') {
+                    dir('./insure-commission-web-test') {
+                        sh 'mvn clean test '
+                    }
+                }
+                cucumber fileIncludePattern: '**/*.json', jsonReportDirectory: 'target/cucumber.json', reducingMethod: 'NONE', sortingMethod: 'ALPHABETICAL'
+            }
+        }
+	}
+    post {
+        failure {
+            script {
+                mail(
+                    from: 'Jenkins <bot@codeclou.io>',
+                    to: 'tobias.boehm@adesso-insurance-solutions.de',
+                    subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is UNSTABLE!",
+                    body: "Please go to ${env.BUILD_URL}."
+                )
+            }
+        }
+        success {
+		    script {
+				if (env.BUILD_NUMBER == "1"){
+                        echo "Erster Build erfolgreich Gelaufen"
+                }
+                else{
+					if ('SUCCESS' != currentBuild.getPreviousBuild().getResult()) {
+						mail(to: 'tobias.boehm@adesso-insurance-solutions.de', subject: "${env.JOB_NAME}' (${env.BUILD_NUMBER}) - Back to normal", body: "Build back to normal: ${env.BUILD_URL}.");
+					}
+                }
+            }
+        }
+    }
+}

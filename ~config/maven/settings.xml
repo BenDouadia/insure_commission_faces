@@ -1,0 +1,43 @@
+<!-- settings.xml -->
+<settings>
+    <!-- Maven 2 Settings file for insure Commission Projecte
+    (c) adesso insurance solutions GmbH 2018
+    Contact: saied.bitar@adesso.de
+    -->
+    <servers>
+        <server>
+            <id>insure_commission</id>
+            <username>insure_commission_view</username>
+            <password>2sFW4VPpzQfL5UWP</password>
+        </server>
+        <server>
+            <id>insure_commission_releases</id>
+            <username>insure_commission_deploy</username>
+            <password>Sz3F8M3zPR7KpyPU</password>
+        </server>
+        <server>
+            <id>insure_commission_snapshots</id>
+            <username>insure_commission_deploy</username>
+            <password>Sz3F8M3zPR7KpyPU</password>
+        </server>
+        <server>
+            <id>nexus-p2</id>
+            <username>P2</username>
+            <password>JJS3FQBFRFmBYOwkfiGI</password>
+        </server>
+    </servers>
+    <mirrors>
+        <mirror>
+            <id>insure_commission</id>
+            <mirrorOf>*</mirrorOf>
+            <url>https://ci-nexus.adesso.de/nexus/content/groups/inSURE_Commission/</url>
+        </mirror>
+        <mirror>
+            <id>nexus-p2</id>
+            <mirrorOf>luna</mirrorOf>
+            <url>https://ci-nexus.adesso.de/nexus/content/groups/P2-Group/</url>
+            <layout>p2</layout>
+            <mirrorOfLayouts>p2</mirrorOfLayouts>
+        </mirror>
+    </mirrors>
+</settings>
